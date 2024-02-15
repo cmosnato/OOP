@@ -1,4 +1,4 @@
-package birdsex;
+package Birdsex;
 public class Birdyeb {
     public static void main(String[] args) {
         Cbird B1 = new Cbird("Real","Female",2);

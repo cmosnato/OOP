@@ -1,4 +1,4 @@
-package birdsex;
+package Birdsex;
 
 public class Cbird {
     private String name;

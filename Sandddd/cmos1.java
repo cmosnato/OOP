@@ -1,4 +1,4 @@
-package cm;
+package Sandddd;
 
 public class cmos1 {
     int sandA;

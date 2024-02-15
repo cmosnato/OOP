@@ -1,4 +1,4 @@
-package glass;
+package Glass;
 
 public class Cglass {
     String name;
