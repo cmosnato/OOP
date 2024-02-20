@@ -58,9 +58,9 @@ public class Board {
     public void DisplayAllposittion() {
         for (int i = 0; i <  bufferposition.length; i++) {
             for (int j = 0; j <  bufferposition[i].length; j++) {
-                System.out.printf("|" +bufferposition[i][j]+"|"); // ใช้ printf เพื่อจัดรูปแบบแสดงผลให้เรียบร้อย
+                System.out.printf("|" +bufferposition[i][j]+"|"); 
             }
-            System.out.println(); // เมื่อจบแต่ละแถวให้ขึ้นบรรทัดใหม่
+            System.out.println(); 
         }
     }
     // void checkmove(int checkmoveposition) {
