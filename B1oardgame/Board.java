@@ -2,78 +2,44 @@ package B1oardgame;
 
 public class Board {
     final public int table = 8;
-    public Figure[] players = new Figure[2];
-    public String[][] bufferposition = new String[table][table];
+    public Figure[][] board = new Figure[table][table];
+    char[] letters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
+
 
     public Board() {
-        players[0] = new Figure("P1", "White", 1, 1);
-        players[1] = new Figure("P2", "Black", 8, 8);
-        for (int i = 0; i < bufferposition.length; i++) {
-            for (int j = 0; j < bufferposition[i].length; j++) {
-                bufferposition[i][j] = "  ";
-            }
-        }
-        for (Figure figureposition : players) {
-            if (figureposition.xposition > table && figureposition.yposition > table) {
-                throw new IllegalArgumentException("Error becasue position not > " + table);
-            } else if (figureposition.xposition < 0 && figureposition.yposition < 0) {
-                throw new IllegalArgumentException("Error becasue position not < 0");
-
-            }
-            for (Figure figure : players) {
-                bufferposition[figure.xposition][figure.yposition] = figure.name;
-
-            }
-            System.out.println("----------Start----------");
-        }
     }
-
-    public void setBoard() {
-        for (Figure figure : players) {
-            System.out.println("Now " + figure.name + " is position " + " Row " + (figure.xposition + 1) + " Column "
-                    + (figure.yposition + 1));
+    public void DisplayAllposittion() {
+        System.out.print("  ");
+        for (int i = 0; i < table; i++) {
+            System.out.print("   ");
+            System.out.print(letters[i]);
         }
-    }
-
-    public void freeMove(String namefigure, int xtomove, int ytomove) {
-        ytomove--;
-        xtomove--;
-        // checkmove(positiontomove);
-        for (Figure player : players) {
-            if ((player.name.equals(namefigure))) {
-                if (bufferposition[xtomove][ytomove].equals("  ")) {
-                    bufferposition[player.xposition][player.yposition] = "  ";
-                    player.setXposition(xtomove);
-                    player.setYposition(ytomove);
-                    bufferposition[player.xposition][player.yposition] = namefigure;
-                    break;
+        System.out.println();
+        System.out.println("--------------------------------------------------------");
+        for (int i = 0; i < board.length; i++) {
+            System.out.print(i + 1 + " ");
+            System.out.print("| ");
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] != null) {
+                    System.out.print(board[i][j].getName() + " ");
                 } else {
-                    System.out.println("cannot move "+player.name+" because the position is occupied");
-                    return;
+                    System.out.print("xxx ");
                 }
             }
+            System.out.println("|");
         }
     }
-
-    public void DisplayAllposittion() {
-        for (int i = 0; i <  bufferposition.length; i++) {
-            for (int j = 0; j <  bufferposition[i].length; j++) {
-                System.out.printf("|" +bufferposition[i][j]+"|"); 
+    public void addFigure(Figure input){
+        int inputRow = (input.currentposition.charAt(1) - '0') - 1;
+        int inputColumn =input.currentposition.charAt(0) - 'a';
+        if (inputRow >= 0 && inputRow < table && inputColumn >= 0 && inputColumn < table) {
+            if (board[inputRow][inputColumn]==null) {
+                board[inputRow][inputColumn]=input;
             }
-            System.out.println(); 
+            else System.out.println("the position is occupied");
         }
+        else System.out.println("position error ");
     }
-    // void checkmove(int checkmoveposition) {
-// if ((checkmoveposition < 0)) {
-// System.out.println("cannot move because not position -");
-// }
-// if ((checkmoveposition >= table)) {
-// System.out.println("cannot move because have position " + table);
-// }
-// if (bufferposition[checkmoveposition] != "xx") {
-// System.out.println("cannot move because the position is occupied");
-// }
-// }
 }
 
 

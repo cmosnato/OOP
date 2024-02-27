@@ -6,6 +6,16 @@ public class Pawn extends Figure {
         super(pawnName, isWhite, currentPosition);
         
     }
+
+    @Override
+    void Move(Chessboard b, String position) {
+        
+    }
+
+    @Override
+    void updateMoveableList(Chessboard board) {
+        
+    }
 }
 
 
