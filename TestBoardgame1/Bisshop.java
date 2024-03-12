@@ -9,7 +9,7 @@ public class Bisshop extends Figure {
 
     @Override
     void Move(Chessboard b, String position) {
-        int moveRow = (position.charAt(1) - '0') - 1;
+        int moveRow = 8 - (position.charAt(1) - '0');
         int moveColumn = position.charAt(0) - 'a';
         int currentRow = (this.getCurrentposition().charAt(1) - '0') - 1;
         int currentColumn = this.getCurrentposition().charAt(0) - 'a';
